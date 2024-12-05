@@ -16,3 +16,5 @@ class CompanyAdmin(admin.ModelAdmin):
 @admin.register(Customer)
 class CustomerAdmin(admin.ModelAdmin):
     list_display = ("user", "birth")
+
+# admin.site.register(Customer, CustomerAdmin)
