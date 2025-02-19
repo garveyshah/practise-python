@@ -37,7 +37,7 @@ A view is a function or method that takes http requests as arguments, imports th
 - They are often .html files, with HTML  code describing the layout of the web page, but it can also be in other file formats to present other results.
 
 - Django uses standard HTML to describe the layout, but uses Django tags to add logic.
-```Django
+```html
 <h1>My Homepage </h1>
 <p>My name is {{ firstname }}.</p>
 ```
@@ -56,17 +56,17 @@ A view is a function or method that takes http requests as arguments, imports th
 ## Django Getting Started
 ### Django Requires Python 
 To check if your system has Python installed, run this command in the terminal:
-```python
+```sh
 python3 --version
 ```
 or
-```python
+```sh
 python --version
 ```
 
 ### PIP
 To install Django, you must use a package manager like PIP.
-```python
+```bash
 pip --version
 ```
 
@@ -77,18 +77,78 @@ It is suugested to have a dedicated virtual environment for each project, and on
 
 1. Create the environment
  Unix/macOS
-```py
+```sh
 python -m venv myworld
 ```
 This will set a virtual environment, and create a folder named "myworld".
 2.  ACtivate the environment
-```py
+```bash
 source myworld/bin/activate
 ```
 ### `NOTE:` You must activate the environment every time you open the command prompt to work on yourproject.
 
 ## Install Django
 Django is installed using pip, with this command:
-```py
+```bash
 (myworld) ... $ python -m pip install Django
 ```
+
+### Check Django Version
+To check if Django is installed by asking for its version number like this
+```bash
+(myworld) C:\Users\Your Name>django-admin --version
+```
+## Create Project 
+### My first Project
+run
+```bash
+django-admin startproject my_tennis_club
+```
+Django creates a `my_tennis_club` folder with this content:
+```bash
+ my_tennis_club
+    manage.py
+    my_tennis_club/
+        __init__.py
+        asgi.py
+        settings.py
+        urls.py
+        wsgi.py
+```
+## Run the Django Project
+Navigate to the `/my_tennis_club` folder and execute this command in the command prompt:
+```sh
+python manage.py runserver
+```
+
+## Django App
+### What is an App?
+An app is a web application that has a specific meaning in your project, like a home page, a contact form, or a members database. We will create an app that alloes us to list and register members in a database.
+
+### Create App
+Navigate to the direction where you want to store the app, in `my_tennis_club` folder.
+run the command
+```sh
+python manage.py startapp members
+```
+
+Django creates a folder names `members` in my project,  with this content:
+```markdown
+ my_tennis_club
+    manage.py
+    my_tennis_club/
+    members/
+        migrations/
+            __init__.py
+        __init__.py
+        admin.py
+        apps.py
+        models.py
+        tests.py
+        views.py
+```
+
+### Views
+Django views are python functions that take requests and return http response, like HTML documents.
+A web page that uses django is full of views with different tasks and missions. They are located in file called `views.py` located on your app's folder.
+
